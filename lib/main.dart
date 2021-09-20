@@ -2,9 +2,23 @@
 // このページの内容を参考に進める。
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      // List of supported locales.
+      supportedLocales: const [Locale('en', ''), Locale('ja', 'JP')],
+      // Path to your folder with localization files.
+      path:
+          'assets/translations', // <-- change the path of the translation files
+      // 	Returns the locale when the locale is not in the list supportedLocales.(Not required)
+      fallbackLocale: const Locale('en', ''),
+      // Place for your main page widget.
+      child: const MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +27,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
