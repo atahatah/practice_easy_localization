@@ -1,0 +1,13 @@
+{
+  "app_title": "フラッターデモ",
+  "home_title": "フラッターデモのホームページ",
+  "pushed_times": "あなたは{}回ボタンを押しました。",
+  "msg":"{} は {} 言語です。",
+  "msg_named":"Easy Localization は {lang} 言語で書かれました。",
+  "msg_mixed":"{} は {lang} 言語で書かれました。",
+  "gender":{
+    "male":"よ、{}くんｗ",
+    "female":"やあ{}さん笑",
+    "other":"こんにちは、{}"
+  }
+}
