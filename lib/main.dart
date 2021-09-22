@@ -64,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     const _gender = false;
+    int money = 1000000;
     return Scaffold(
       appBar: AppBar(
         title: Text('home_title'.tr()),
@@ -74,15 +75,44 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'pushed_times',
-            ).tr(args: ['$_counter']),
+            ).plural(_counter),
             // args
-            Text('msg').tr(args: ['Easy localization', 'Dart']),
+            const Text('msg').tr(args: ['Easy localization', 'Dart']),
             // namedArgs
-            Text('msg_named').tr(namedArgs: {'lang': 'Dart'}),
+            const Text('msg_named').tr(namedArgs: {'lang': 'Dart'}),
             // args and namedArgs
-            Text('msg_mixed').tr(args: ['Easy localization'], namedArgs: {'lang': 'Dart'}),
+            const Text('msg_mixed').tr(args: ['Easy localization'], namedArgs: {'lang': 'Dart'}),
             // gender
-            Text('gender').tr(gender: _gender ? "female" : "male", args: ['西']),
+            const Text('gender').tr(gender: _gender ? "female" : "male", args: ['西']),
+
+            // plural
+            // Text widget with format
+            Column(children: [
+              TextField(
+                keyboardType: TextInputType.number,
+                maxLines: 1,
+                onChanged: (String s){
+                  var parse;
+                  try{
+                    parse = int.parse(s);
+                  }catch(e){
+                    parse = 0;
+                  }
+                  print(parse);
+                  setState((){money = parse;});
+                }),
+            ]),
+            Text(money.toString()),
+            Text('money').plural(money, format: NumberFormat.compact(locale: context.locale.toString())), // output: You have 1M dollars
+            // String
+            // print('day'.plural(21)); // output: 21 день
+            Text('day'.plural(21)), // output: 21 день
+            //Static function
+            // var money = plural('money', 10.23) // output: You have 10.23 dollars
+            Text(plural('money', 10.23)), // output: You have 10.23 dollars
+            //Static function with arguments
+            // var money = plural('money_args', 10.23, args: ['John', '10.23'])  // output: John has 10.23 dollars
+            Text(plural('money_args', 10.23, args: ['John', '10.23'])),  // output: John has 10.23 dollars
           ],
         ),
       ),
