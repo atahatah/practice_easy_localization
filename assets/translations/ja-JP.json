@@ -48,5 +48,9 @@
   "example2": {
     "fullName": "Full Name",
     "emptyNameError": "Please fill in your @.lower:example2.fullName"
-  }
+  },
+  "reset_locale": "デバイスの地域へ地域を戻す",
+  "delete_locale": "デバイスのストレージに保存された地域を削除する",
+  "generated": "生成されたkeyを利用しています",
+  "not_generated": "生成されたkeyを使わなくても文字列「{}」は使えます"
 }

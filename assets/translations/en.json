@@ -54,5 +54,9 @@
   "example2": {
     "fullName": "Full Name",
     "emptyNameError": "Please fill in your @.lower:example.fullName"
-  }
+  },
+  "reset_locale": "Reset locale to device locale",
+  "delete_locale": "Clears a saved locale from device storage",
+  "generated": "Using the generated key",
+  "not_generated": "You can use the words '{}' not using the generated key."
 }

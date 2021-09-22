@@ -7,6 +7,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
+// このファイルは
+// flutter pub run easy_localization:generate -S assets/translations -f keys
+// というコマンドを実行して生成された。
+// それぞれの言語ファイルの更新のたびにコマンドを実行しなおさないと、その単語のkeyが使えない
+import 'package:practice_easy_localization/generated/codegen_loader.g.dart';
 
 void main() async {
   // Needs to be called so that we can await for EasyLocalization.ensureInitialized();
@@ -203,6 +208,25 @@ class _MyHomePageState extends State<MyHomePage> {
               //  -lower
               //  -capitalize 最初だけ大文字
               const Text('example2.emptyNameError').tr(), //Output: Please fill in your full name
+
+              // Reset locale resetLocale()
+              ElevatedButton(
+                  onPressed: () => context.resetLocale(),
+                  child: const Text(LocaleKeys.reset_locale).tr()),
+              // Get device locale deviceLocale
+              Text(context.deviceLocale.toString()),
+              // Delete save locale deleteSaveLocale()
+              ElevatedButton(
+                  onPressed: () => context.resetLocale(),
+                  child: const Text(LocaleKeys.delete_locale).tr()),
+              // Get Easy localization widget properties
+              Text(context.supportedLocales.toString()),
+              Text(context.fallbackLocale.toString()),
+              Text(context.localizationDelegates.toString()),
+
+              // Code generation
+              const Text(LocaleKeys.generated).tr(),
+              const Text('not_generated').tr(args: ['generated'.tr()]),
             ],
           ),
         ),
