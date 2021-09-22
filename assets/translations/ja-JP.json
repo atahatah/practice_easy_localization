@@ -37,5 +37,16 @@
     "few": "少し",
     "many": "たくさん",
     "other": "その他"
+  },
+  "example1": {
+    "hello": "よっ",
+    "world": "新世界！",
+    "helloWorld": "@:example.hello @:example.world"
+  },
+  "date": "{currentDate}.",
+  "dateLogging": "情報：今日は@:dateです。",
+  "example": {
+    "fullName": "Full Name",
+    "emptyNameError": "Please fill in your @.lower:example.fullName"
   }
 }

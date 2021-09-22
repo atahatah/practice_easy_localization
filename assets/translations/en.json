@@ -43,5 +43,16 @@
     "few": "few",
     "many": "many",
     "other": "other"
+  },
+  "example1": {
+    "hello": "Hello",
+    "world": "World!",
+    "helloWorld": "@:example.hello @:example.world"
+  },
+  "date": "{currentDate}.",
+  "dateLogging": "INFO: the date today is @:date",
+  "example2": {
+    "fullName": "Full Name",
+    "emptyNameError": "Please fill in your @.lower:example.fullName"
   }
 }

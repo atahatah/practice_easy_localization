@@ -190,6 +190,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const Text('how_many').plural(howMany),  // output: John has 10.23 dollars
               ]),
+
+              // Linked translations
+              // ほかの文言を使うことができる。
+              // @:key
+              const Text('example1.helloWorld').tr(), //Output: Hello World!
+              // 引数もネストできる
+              const Text('dateLogging').tr(namedArgs: {'currentDate': DateTime.now().toIso8601String()}), //Output: INFO: the date today is 2020-11-27T16:40:42.657.
+              // 大文字小文字の区別がある言語なら変更できる
+              // @.modifier:key
+              //  -upper
+              //  -lower
+              //  -capitalize 最初だけ大文字
+              const Text('example2.emptyNameError').tr(), //Output: Please fill in your full name
             ],
           ),
         ),
