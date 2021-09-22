@@ -9,5 +9,33 @@
     "male":"よ、{}くんｗ",
     "female":"やあ{}さん笑",
     "other":"こんにちは、{}"
+  },
+  "day": {
+    "zero":"{} дней",
+    "one": "{} день",
+    "two": "{} дня",
+    "few": "{} дня",
+    "many": "{} дней",
+    "other": "{} дней"
+  },
+  "money": {
+    "zero": "You not have money",
+    "one": "You have {} dollar",
+    "many": "You have {} dollars",
+    "other": "You have {} dollars"
+  },
+  "money_args": {
+    "zero": "{} has no money",
+    "one": "{} has {} dollar",
+    "many": "{} has {} dollars",
+    "other": "{} has {} dollars"
+  },
+  "how_many": {
+    "zero": "ゼロ",
+    "one": "いち",
+    "two": "に",
+    "few": "少し",
+    "many": "たくさん",
+    "other": "その他"
   }
 }

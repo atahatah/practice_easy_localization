@@ -1,12 +1,47 @@
 {
   "app_title": "Flutter Demo",
   "home_title": "Flutter Demo Home Page",
-  "pushed_times": "You have pushed the button {} time(s)",
-  "msg":"{} are written in the {} language",
-  "msg_named":"Easy localization are written in the {lang} language",
-  "msg_mixed":"{} are written in the {lang} language",
-  "gender":{
-    "male":"Hi man ;) {}",
-    "female":"Hello girl :) {}",
-    "other":"Hello {}"
-  }}
+  "pushed_times": {
+    "zero": "You don't have pushed the button yet",
+    "one": "You have pushed the button {} time",
+    "two": "You have pushed the button {} times",
+    "many": "You have pushed the button {} times",
+    "other": "You have pushed the button {} times"
+  },
+  "msg": "{} are written in the {} language",
+  "msg_named": "Easy localization are written in the {lang} language",
+  "msg_mixed": "{} are written in the {lang} language",
+  "gender": {
+    "male": "Hi man ;) {}",
+    "female": "Hello girl :) {}",
+    "other": "Hello {}"
+  },
+  "day": {
+    "zero": "{} дней",
+    "one": "{} день",
+    "two": "{} дня",
+    "few": "{} дня",
+    "many": "{} дней",
+    "other": "{} дней"
+  },
+  "money": {
+    "zero": "You not have money",
+    "one": "You have {} dollar",
+    "many": "You have {} dollars",
+    "other": "You have {} dollars"
+  },
+  "money_args": {
+    "zero": "{} has no money",
+    "one": "{} has {} dollar",
+    "many": "{} has {} dollars",
+    "other": "{} has {} dollars"
+  },
+  "how_many": {
+    "zero": "zero",
+    "one": "one",
+    "two": "two",
+    "few": "few",
+    "many": "many",
+    "other": "other"
+  }
+}
