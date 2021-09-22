@@ -54,6 +54,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int money = 1000000;
 
   void _incrementCounter() {
     setState(() {
@@ -64,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     const _gender = false;
-    int money = 1000000;
     return Scaffold(
       appBar: AppBar(
         title: Text('home_title'.tr()),
