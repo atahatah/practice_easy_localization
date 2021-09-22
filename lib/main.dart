@@ -73,123 +73,125 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('home_title'.tr()),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'pushed_times',
-            ).plural(_counter),
-            // args
-            const Text('msg').tr(args: ['Easy localization', 'Dart']),
-            // namedArgs
-            const Text('msg_named').tr(namedArgs: {'lang': 'Dart'}),
-            // args and namedArgs
-            const Text('msg_mixed').tr(args: ['Easy localization'], namedArgs: {'lang': 'Dart'}),
-            // gender
-            const Text('gender').tr(gender: _gender ? "female" : "male", args: ['西']),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'pushed_times',
+              ).plural(_counter),
+              // args
+              const Text('msg').tr(args: ['Easy localization', 'Dart']),
+              // namedArgs
+              const Text('msg_named').tr(namedArgs: {'lang': 'Dart'}),
+              // args and namedArgs
+              const Text('msg_mixed').tr(args: ['Easy localization'], namedArgs: {'lang': 'Dart'}),
+              // gender
+              const Text('gender').tr(gender: _gender ? "female" : "male", args: ['西']),
 
-            // plural
-            // Text widget with format
-            Row(children: [
-              SizedBox(
-                width: 100,
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLines: 1,
-                    onChanged: (String s){
-                      try{
-                        money1 = num.parse(s);
-                      }catch(e){
-                        money1 = 0;
-                      }
-                      setState((){});
-                    }),
-              ),
-              const Text('money').plural(money1, format: NumberFormat.compact(locale: context.locale.toString())), // output: You have 1M dollars
-            ]),
-            // String
-            // print('day'.plural(21)); // output: 21 день
-            Row(children: [
-              SizedBox(
-                width: 100,
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLines: 1,
-                    onChanged: (String s){
-                      try{
-                        day = num.parse(s);
-                      }catch(e){
-                        day = 0;
-                      }
-                      setState((){});
-                    }),
-              ),
-              Text('day'.plural(day)), // output: 21 день
-            ]),
-            //Static function
-            // var money = plural('money', 10.23) // output: You have 10.23 dollars
-            Row(children: [
-              SizedBox(
-                width: 100,
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLines: 1,
-                    onChanged: (String s){
-                      try{
-                        money2 = num.parse(s);
-                      }catch(e){
-                        money2 = 0;
-                      }
-                      setState((){});
-                    }),
-              ),
-              Text('day'.plural(money2)), // output: 21 день
-            ]),
-            //Static function with arguments
-            // var money = plural('money_args', 10.23, args: ['John', '10.23'])  // output: John has 10.23 dollars
-            Row(children: [
-              SizedBox(
-                width: 100,
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLines: 1,
-                    onChanged: (String s){
-                      try{
-                        money3 = num.parse(s);
-                      }catch(e){
-                        money3 = 0;
-                      }
-                      setState((){});
-                    }),
-              ),
-              Text(plural('money_args', money3, args: ['John', '10.23'])),  // output: John has 10.23 dollars
-            ]),
-            // 以下の実験から、英語では次の通りに条件分岐されるっぽい
-            // 0:zero
-            // 四捨五入して1(日本語では1のみ）:one
-            // 2:tow
-            // そのほか:other
-            // few, manyは使われないようだ
-            // double.infinity,double.nanはエラー、他はその他
-            Row(children: [
-              SizedBox(
-                width: 100,
-                child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLines: 1,
-                    onChanged: (String s){
-                      try{
-                        howMany = num.parse(s);
-                      }catch(e){
-                        howMany = 0;
-                      }
-                      setState((){});
-                    }),
-              ),
-              const Text('how_many').plural(howMany),  // output: John has 10.23 dollars
-            ]),
-          ],
+              // plural
+              // Text widget with format
+              Row(children: [
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: 1,
+                      onChanged: (String s){
+                        try{
+                          money1 = num.parse(s);
+                        }catch(e){
+                          money1 = 0;
+                        }
+                        setState((){});
+                      }),
+                ),
+                const Text('money').plural(money1, format: NumberFormat.compact(locale: context.locale.toString())), // output: You have 1M dollars
+              ]),
+              // String
+              // print('day'.plural(21)); // output: 21 день
+              Row(children: [
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: 1,
+                      onChanged: (String s){
+                        try{
+                          day = num.parse(s);
+                        }catch(e){
+                          day = 0;
+                        }
+                        setState((){});
+                      }),
+                ),
+                Text('day'.plural(day)), // output: 21 день
+              ]),
+              //Static function
+              // var money = plural('money', 10.23) // output: You have 10.23 dollars
+              Row(children: [
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: 1,
+                      onChanged: (String s){
+                        try{
+                          money2 = num.parse(s);
+                        }catch(e){
+                          money2 = 0;
+                        }
+                        setState((){});
+                      }),
+                ),
+                Text('day'.plural(money2)), // output: 21 день
+              ]),
+              //Static function with arguments
+              // var money = plural('money_args', 10.23, args: ['John', '10.23'])  // output: John has 10.23 dollars
+              Row(children: [
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: 1,
+                      onChanged: (String s){
+                        try{
+                          money3 = num.parse(s);
+                        }catch(e){
+                          money3 = 0;
+                        }
+                        setState((){});
+                      }),
+                ),
+                Text(plural('money_args', money3, args: ['John', '10.23'])),  // output: John has 10.23 dollars
+              ]),
+              // 以下の実験から、英語では次の通りに条件分岐されるっぽい
+              // 0:zero
+              // 四捨五入して1(日本語では1のみ）:one
+              // 2:tow
+              // そのほか:other
+              // few, manyは使われないようだ
+              // double.infinity,double.nanはエラー、他はその他
+              Row(children: [
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: 1,
+                      onChanged: (String s){
+                        try{
+                          howMany = num.parse(s);
+                        }catch(e){
+                          howMany = 0;
+                        }
+                        setState((){});
+                      }),
+                ),
+                const Text('how_many').plural(howMany),  // output: John has 10.23 dollars
+              ]),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
